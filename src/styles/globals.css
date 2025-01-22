@@ -65,8 +65,34 @@
 @layer base {
   * {
     @apply border-border;
+    box-sizing: border-box;
   }
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+  
+  /* Responsive type scale */
+  html {
+    font-size: 16px;
+    @screen sm {
+      font-size: calc(16px + 0.25vw);
+    }
+    @screen lg {
+      font-size: 18px;
+    }
+  }
+  
+  /* Image responsiveness */
+  img {
+    @apply max-w-full h-auto align-middle;
+  }
+  
+  /* Mobile-first media queries */
+  @screen md {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
   }
 }
